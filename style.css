@@ -1,12 +1,12 @@
 /* Глобальные стили */
 * {
-  font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
+  font-family: "Montserrat", sans-serif;
   line-height: 1.6;
   background-color: #1e1e1e;
   color: #f8f8f2;
@@ -87,6 +87,14 @@ body.light .subtitle {
 
 body.light .menu a {
   color: #333;
+}
+.active-link {
+  border-bottom: 1px solid #ffb86c;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+body.light .active-link {
+  border-bottom: 1px solid #ff5722;
 }
 /* Настройки */
 .settings-menu {
