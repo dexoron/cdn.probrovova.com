@@ -70,7 +70,24 @@ body.light h1 {
 body.light .subtitle {
   color: #666;
 }
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.menu a {
+  color: #f8f8f2;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-right: 20px;
+  transition: color 0.3s;
+}
+
+body.light .menu a {
+  color: #333;
+}
 /* Настройки */
 .settings-menu {
   position: absolute;
