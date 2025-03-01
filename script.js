@@ -18,30 +18,50 @@ document.addEventListener("click", (e) => {
 const languageSelect = document.getElementById("language-select");
 const contentEn = document.querySelector(".content-en");
 const contentRu = document.querySelector(".content-ru");
+const contentPl = document.querySelector(".content-pl");
+const contentZh = document.querySelector(".content-zh-cn");
 const headerTitle = document.querySelector("h1");
 const headerSubtitle = document.querySelector(".subtitle");
 
 function setLanguage(lang) {
   let selectedLang = lang;
   if (lang === "system") {
-    const systemLang = navigator.language.slice(0, 2); // Берем первые 2 символа (например, 'en' или 'ru')
-    selectedLang = systemLang === "ru" ? "ru" : "en"; // Если не 'ru', то по умолчанию 'en'
+    const systemLang = navigator.language.slice(0, 2);
+    if (systemLang === "ru") selectedLang = "ru";
+    else if (systemLang === "pl") selectedLang = "pl";
+    else if (systemLang === "zh") selectedLang = "zh-cn";
+    else selectedLang = "en";
   }
 
   document.documentElement.lang = selectedLang;
+  contentEn.style.display = "none";
+  contentRu.style.display = "none";
+  contentPl.style.display = "none";
+  contentZh.style.display = "none";
+
   if (selectedLang === "en") {
     contentEn.style.display = "block";
-    contentRu.style.display = "none";
     document.title = "Dexoron CDN - Free Fonts & Styles";
     headerTitle.textContent = "Dexoron CDN";
     headerSubtitle.textContent = "Free fonts and styles for your projects";
   } else if (selectedLang === "ru") {
-    contentEn.style.display = "none";
     contentRu.style.display = "block";
     document.title = "Dexoron CDN - Бесплатные шрифты и стили";
     headerTitle.textContent = "Dexoron CDN";
     headerSubtitle.textContent = "Бесплатные шрифты и стили для ваших проектов";
+  } else if (selectedLang === "pl") {
+    contentPl.style.display = "block";
+    document.title = "Dexoron CDN - Darmowe czcionki i style";
+    headerTitle.textContent = "Dexoron CDN";
+    headerSubtitle.textContent =
+      "Darmowe czcionki i style dla twoich projektów";
+  } else if (selectedLang === "zh-cn") {
+    contentZh.style.display = "block";
+    document.title = "Dexoron CDN - 免费字体和样式";
+    headerTitle.textContent = "Dexoron CDN";
+    headerSubtitle.textContent = "为您的项目提供免费字体和样式";
   }
+
   localStorage.setItem("language", lang);
 }
 
@@ -72,14 +92,12 @@ themeSelect.addEventListener("change", (e) => {
 });
 
 // Инициализация языка и темы
-const savedLanguage = localStorage.getItem("language") || "system"; // По умолчанию системный
-const savedTheme = localStorage.getItem("theme") || "system"; // По умолчанию системная
+const savedLanguage = localStorage.getItem("language") || "system";
+const savedTheme = localStorage.getItem("theme") || "system";
 
-// Установка языка
 languageSelect.value = savedLanguage;
 setLanguage(savedLanguage);
 
-// Установка темы
 themeSelect.value = savedTheme;
 setTheme(savedTheme);
 
@@ -93,7 +111,7 @@ window
     }
   });
 
-// Реакция на изменение системного языка (если поддерживается системой)
+// Реакция на изменение системного языка
 window.addEventListener("languagechange", () => {
   if (languageSelect.value === "system") {
     setLanguage("system");

@@ -163,7 +163,8 @@ body.light .dropdown-section select {
 .content-en {
   display: block;
 }
-
+.content-pl,
+.content-zh-cn,
 .content-ru {
   display: none;
 }
