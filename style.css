@@ -1,0 +1,348 @@
+/* Глобальные стили */
+* {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.6;
+  background-color: #1e1e1e;
+  color: #f8f8f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Светлая тема */
+body.light {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Основной контейнер */
+.main-content {
+  max-width: 900px;
+  width: 100%;
+  background-color: #252736;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s;
+}
+
+body.light .main-content {
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Шапка */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: #6be2ff;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+body.light h1 {
+  color: #007bff;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #bd93f9;
+  font-weight: 400;
+}
+
+body.light .subtitle {
+  color: #666;
+}
+
+/* Настройки */
+.settings-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.settings-btn {
+  background-color: #44475a;
+  color: #f8f8f2;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+body.light .settings-btn {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.settings-btn:hover {
+  background-color: #6272a4;
+}
+
+body.light .settings-btn:hover {
+  background-color: #d0d0d0;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 45px;
+  background-color: #282a36;
+  border: 1px solid #44475a;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  min-width: 180px;
+}
+
+body.light .dropdown {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+}
+
+.dropdown-section {
+  margin-bottom: 10px;
+}
+
+.dropdown-section h4 {
+  font-size: 0.9rem;
+  color: #ffb86c;
+  margin-bottom: 5px;
+}
+
+body.light .dropdown-section h4 {
+  color: #007bff;
+}
+
+.dropdown-section select {
+  width: 100%;
+  padding: 5px;
+  background-color: #44475a;
+  color: #f8f8f2;
+  border: none;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
+body.light .dropdown-section select {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* Контент */
+.content {
+  transition: opacity 0.3s;
+}
+
+.content-en {
+  display: block;
+}
+
+.content-ru {
+  display: none;
+}
+
+/* Секции */
+.section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #6be2ff;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #44475a;
+  padding-bottom: 5px;
+}
+
+body.light .section-title {
+  color: #007bff;
+  border-bottom: 2px solid #ddd;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #f8f8f2;
+}
+
+body.light p {
+  color: #555;
+}
+
+/* Блок с кодом */
+.code-container {
+  background-color: #282a36;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #44475a;
+}
+
+body.light .code-container {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+.code-container h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffb86c;
+  margin-bottom: 10px;
+}
+
+body.light .code-container h3 {
+  color: #ff5722;
+}
+
+.code-container p {
+  font-size: 1rem;
+  color: #6272a4;
+  margin-bottom: 10px;
+}
+
+body.light .code-container p {
+  color: #777;
+}
+
+pre {
+  background-color: #1e1e1e;
+  padding: 12px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+body.light pre {
+  background-color: #f0f0f0;
+}
+
+code {
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  color: #f8f8f2;
+}
+
+body.light code {
+  color: #333;
+}
+
+/* Ссылки */
+a {
+  color: #ffb86c;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+body.light a {
+  color: #007bff;
+}
+
+a:hover {
+  color: #ff79c6;
+}
+
+body.light a:hover {
+  color: #0056b3;
+}
+
+/* Подвал */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6272a4;
+  margin-top: 40px;
+}
+
+body.light footer {
+  color: #777;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 20px;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  .section-title {
+    font-size: 1.5rem;
+  }
+  .settings-menu {
+    top: 5px;
+    right: 5px;
+  }
+  .dropdown {
+    top: 40px;
+    right: -10px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+  h1 {
+    font-size: 2rem;
+    text-align: left;
+  }
+  .subtitle {
+    font-size: 1rem;
+    text-align: left;
+  }
+  .settings-menu {
+    position: static;
+    margin-top: 10px;
+    align-self: flex-end;
+  }
+  .dropdown {
+    position: fixed;
+    top: auto;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    max-width: calc(100% - 20px);
+  }
+  .section-title {
+    font-size: 1.3rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+  .code-container {
+    padding: 10px;
+  }
+}
